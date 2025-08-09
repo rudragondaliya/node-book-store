@@ -1,0 +1,126 @@
+<%- include('../partials/header') %>
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Page wrapper  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="page-breadcrumb">
+    <div class="row">
+      <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">Form Basic</h4>
+        <div class="ms-auto text-end">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Library
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card p-5">
+          <div class="title mb-3">
+            <h2>Add Books</h2>
+          </div>
+
+          <form
+            action="<%= book ? ('/update/' + book._id) : '/create' %>"
+            method="post"
+            class="card w-50"
+          >
+            <!-- product name -->
+            <div class="mb-3">
+              <label for="bookName" class="form-label">Book Name</label>
+              <input
+                type="text"
+                id="bookName"
+                name="b_name"
+                value="<%= book ? book.b_name : '' %>"
+                class="form-control"
+              />
+            </div>
+            <!-- product price -->
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input
+                type="number"
+                id="price"
+                name="b_price"
+                value="<%= book ? book.b_price : '' %>"
+                class="form-control"
+              />
+            </div>
+            <!-- product description -->
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                name="desc"
+                id="description"
+                class="form-control"
+              ><%= book ? book.desc : '' %></textarea
+              >
+            </div>
+            <!-- product description -->
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <select
+                name="category"
+                id="category"
+                class="form-select"
+              >
+                <option value="" disabled <%= !book ? 'selected' : '' %>>--- select category ---</option>
+                <option value="Fantasy" <%= book && book.category === 'Fantasy' ? 'selected' : '' %>>Fantasy</option>
+                <option value="Science Fiction" <%= book && book.category === 'Science Fiction' ? 'selected' : '' %>>Science Fiction</option>
+                <option value="Historical" <%= book && book.category === 'Historical' ? 'selected' : '' %>>Historical</option>
+                <option value="Realistic" <%= book && book.category === 'Realistic' ? 'selected' : '' %>>Realistic</option>
+                <option value="Crime" <%= book && book.category === 'Crime' ? 'selected' : '' %>>Crime</option>
+                <option value="Horror" <%= book && book.category === 'Horror' ? 'selected' : '' %>>Horror</option>
+                <option value="Romance" <%= book && book.category === 'Romance' ? 'selected' : '' %>>Romance</option>
+                <option value="Biography" <%= book && book.category === 'Biography' ? 'selected' : '' %>>Biography</option>
+                <option value="Refrence book" <%= book && book.category === 'Refrence book' ? 'selected' : '' %>>Refrence book</option>
+                <option value="Essay" <%= book && book.category === 'Essay' ? 'selected' : '' %>>Essay</option>
+              </select>
+            </div>
+
+            <button class="btn <%= book ? 'btn-success text-white' : 'btn-primary' %>">
+              <%= book ? 'Update Book' : 'Add Book' %>
+            </button>
+          </form>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Container fluid  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <%- include('../partials/footer') %></div
+    ></div
+  ></div
+>
